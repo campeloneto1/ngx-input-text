@@ -98,7 +98,7 @@ ngOnInit(): void {
 Then, in your HTML file put this:
 
 ```html
-<form [formGroup]="form" style="width: 100%;">
+<form [formGroup]="form" >
           <div class="row">
             <ngx-input-text class="col-sm-4" formControlName="name"  type="text" label="Name" id="name"  />
             <ngx-input-text class="col-sm-4" mascara="(00) 0 0000-0000" formControlName="phone"  type="text" label="Phone with mask" id="phone"  />
