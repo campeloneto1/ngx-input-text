@@ -40,12 +40,19 @@ export class AppComponent implements OnInit{
 
 ngOnInit(): void {
     this.form = this.formBuilder.group({     
-      name: [
+     name: [
         '',
         Validators.compose([
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(150),
+        ]),
+      ],
+      email: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.email,
         ]),
       ],
       phone: [
@@ -54,6 +61,14 @@ ngOnInit(): void {
           Validators.required,
           Validators.minLength(11),
           Validators.maxLength(11),
+        ]),
+      ],
+      number: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.min(0),
+          Validators.max(100),
         ]),
       ],
       date: [
