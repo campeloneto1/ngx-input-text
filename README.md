@@ -13,9 +13,9 @@ Form Input with label, validator and mask using Bootstrap Css
 ## Getting started
 
 Install de Ngx Input Text
-
+```
 npm install ngx-input-text
-
+```
 Import in your NgModel
 ```typescript
 import { NgModule } from '@angular/core';
