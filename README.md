@@ -100,17 +100,17 @@ Then, in your HTML file put this:
 ```html
 <form [formGroup]="form" style="width: 100%;">
           <div class="row">
-            <ngx-input-text class="col-sm-4" formControlName="name"  tipo="text" label="Name" id="name"  />
-            <ngx-input-text class="col-sm-4" mascara="(00) 0 0000-0000" formControlName="phone"  tipo="text" label="Phone with mask" id="phone"  />
-            <ngx-input-text class="col-sm-4" formControlName="email"  tipo="email" label="Email" id="email"  />
+            <ngx-input-text class="col-sm-4" formControlName="name"  type="text" label="Name" id="name"  />
+            <ngx-input-text class="col-sm-4" mascara="(00) 0 0000-0000" formControlName="phone"  type="text" label="Phone with mask" id="phone"  />
+            <ngx-input-text class="col-sm-4" formControlName="email"  type="email" label="Email" id="email"  />
           </div>
           <div class="row">
-            <ngx-input-text class="col-sm-4" formControlName="number"  tipo="number" label="Number" id="number"  />
-            <ngx-input-text class="col-sm-4" formControlName="date"  tipo="date" label="Date" id="date"  />
-            <ngx-input-text class="col-sm-4" formControlName="time"  tipo="time" label="Time" id="time"  />
+            <ngx-input-text class="col-sm-4" formControlName="number"  type="number" label="Number" id="number"  />
+            <ngx-input-text class="col-sm-4" formControlName="date"  type="date" label="Date" id="date"  />
+            <ngx-input-text class="col-sm-4" formControlName="time"  type="time" label="Time" id="time"  />
           </div>
           <div class="row">
-            <ngx-input-text class="col-sm-12" formControlName="obs"  tipo="textarea" label="Description" id="obs"  />
+            <ngx-input-text class="col-sm-12" formControlName="obs"  type="textarea" label="Description" id="obs"  />
           </div>
       </form>
 ```
