@@ -17,7 +17,7 @@ Install de Ngx Input Text
 npm install ngx-input-text
 
 Import in your NgModel
-
+```typescript
 import { NgModule } from '@angular/core';
 import { NgxInputText } from 'ngx-input-text';
 
@@ -28,8 +28,11 @@ import { NgxInputText } from 'ngx-input-text';
 })
 export class MyModule {}
 
+```
+
 In your component import FormGroup, FormBuilder and Validators, create a form and implement os NgOnInit your form:
 
+```typescript
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit{
  form!: FormGroup
@@ -74,3 +77,5 @@ ngOnInit(): void {
     });
   }
 }
+
+```
