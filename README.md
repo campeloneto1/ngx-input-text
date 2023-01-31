@@ -20,11 +20,11 @@ npm install ngx-input-text
 Import in your NgModel
 ```typescript
 import { NgModule } from '@angular/core';
-import { NgxInputText } from 'ngx-input-text';
+import { NgxInputTextModule } from 'ngx-input-text';
 
 @NgModule({
   imports: [
-    NgxInputText
+    NgxInputTextModule
   ],
 })
 export class MyModule {}
