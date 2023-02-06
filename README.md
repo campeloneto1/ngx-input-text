@@ -6,22 +6,111 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## About
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Form Input with label, validator and mask using Bootstrap Css
 
-## Build
+## Getting started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install de Ngx Input Text using NPM
+```
+npm install ngx-input-text
 
-## Running unit tests
+```
+Import in your NgModel
+```typescript
+import { NgModule } from '@angular/core';
+import { NgxInputTextModule } from 'ngx-input-text';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  imports: [
+    NgxInputTextModule
+  ],
+})
+export class MyModule {}
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+In your component ts, import FormGroup, FormBuilder and Validators, create a form and implement os NgOnInit your form:
 
-## Further help
+```typescript
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+export class AppComponent implements OnInit{
+ form!: FormGroup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ngOnInit(): void {
+    this.form = this.formBuilder.group({     
+     text: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(150),
+        ]),
+      ],
+      mask: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.email,
+        ]),
+      ],
+      phone: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(11),
+          Validators.maxLength(11),
+        ]),
+      ],
+      number: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.min(0),
+          Validators.max(100),
+        ]),
+      ],
+      date: [
+        '',
+        Validators.compose([
+          Validators.required,
+        ]),
+      ],
+      time: [
+        '',
+        Validators.compose([
+          Validators.required,
+        ]),
+      ],
+      obs: [
+        '',
+        Validators.compose([
+          Validators.required,
+        ]),
+      ],
+    
+    });
+  }
+}
+
+```
+Then, in your Component HTML file put this:
+
+```html
+<form [formGroup]="form" >
+          <div class="row">
+            <ngx-input-text class="col-sm-4" formControlName="text"  type="text" label="Text" id="text"  />
+            <ngx-input-text class="col-sm-4" mask="(00) 0 0000-0000" formControlName="mask"  type="text" label="Text with mask" id="mask"  />
+            <ngx-input-text class="col-sm-4" formControlName="email"  type="email" label="Email" id="email"  />
+          </div>
+          <div class="row">
+            <ngx-input-text class="col-sm-4" formControlName="number"  type="number" label="Number" id="number"  />
+            <ngx-input-text class="col-sm-4" formControlName="date"  type="date" label="Date" id="date"  />
+            <ngx-input-text class="col-sm-4" formControlName="time"  type="time" label="Time" id="time"  />
+          </div>
+          <div class="row">
+            <ngx-input-text class="col-sm-12" formControlName="obs"  type="textarea" label="Description" id="obs"  />
+          </div>
+      </form>
+```
