@@ -1,35 +1,39 @@
-import { Component, forwardRef, Input } from "@angular/core";
-import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from "@angular/forms";
+import { Component, forwardRef, Input } from '@angular/core';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  ValidationErrors,
+} from '@angular/forms';
 
 @Component({
-    selector: 'app-input-text',
-    templateUrl: './input-text.component.html',
-    styleUrls: ['./input-text.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        multi: true,
-        useExisting: forwardRef(() => InputTextComponent)
+  selector: 'ngx-input-text',
+  templateUrl: './input-text.component.html',
+  styleUrls: ['./input-text.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => InputTextComponent),
     },
     {
-        provide: NG_VALIDATORS,
-        multi: true,
-        useExisting: InputTextComponent
-      },
-    ]   
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: InputTextComponent,
+    },
+  ],
 })
+export class InputTextComponent implements ControlValueAccessor {
+  inputvalor = '';
+  control!: AbstractControl;
 
-export class InputTextComponent implements ControlValueAccessor{
-
-    inputvalor = '';
-    control!: AbstractControl;
-
-  
   @Input() id!: string;
   @Input() label!: string;
-  @Input() tipo!: string;
-  @Input() mascara!: string;
+  @Input() type!: string;
+  @Input() mask!: string;
 
-  onChange = (inputvalor:string) => {};
+  onChange = (inputvalor: string) => {};
 
   onTouched = () => {};
 
@@ -39,7 +43,7 @@ export class InputTextComponent implements ControlValueAccessor{
 
   change() {
     this.markAsTouched();
-    if (!this.disabled) {      
+    if (!this.disabled) {
       this.onChange(this.inputvalor);
     }
   }
@@ -67,9 +71,8 @@ export class InputTextComponent implements ControlValueAccessor{
     this.disabled = disabled;
   }
 
-  validate(control: AbstractControl): ValidationErrors | void  {
+  validate(control: AbstractControl): ValidationErrors | void {
     this.control = control;
-    //console.log(control)
+    console.log(control);
   }
-
 }

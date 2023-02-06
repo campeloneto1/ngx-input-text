@@ -1,60 +1,73 @@
 <div class="form-group">
-  <label for="{{ id }}">
+  <label for="{{ id }}" *ngIf="label">
     {{ label }}
     <span *ngIf="control?.errors?.['required']" class="text-danger">*</span>
   </label>
   <input
-    *ngIf="!mascara"
+    *ngIf="!mask && type != 'textarea'"
     [(ngModel)]="inputvalor"
-    (keyup)="change()"
+    (ngModelChange)="change()"
     [ngClass]="{
       'is-invalid': control.invalid && (control.dirty || control.touched)
     }"
-    type="{{tipo}}"
+    type="{{ type }}"
     class="form-control"
     id="{{ id }}"
     placeholder="{{ label }}"
   />
 
   <input
-    *ngIf="mascara"
+    *ngIf="mask && type != 'textarea'"
     [(ngModel)]="inputvalor"
-    (keyup)="change()"
+    (ngModelChange)="change()"
     [ngClass]="{
       'is-invalid': control.invalid && (control.dirty || control.touched)
     }"
-    mask="{{mascara}}"
-    type="{{tipo}}"
+    mask="{{ mask }}"
+    type="{{ type }}"
     class="form-control"
     id="{{ id }}"
     placeholder="{{ label }}"
   />
 
+  <textarea
+    *ngIf="type == 'textarea'"
+    rows="10"
+    [(ngModel)]="inputvalor"
+    (ngModelChange)="change()"
+    [ngClass]="{
+      'is-invalid': control.invalid && (control.dirty || control.touched)
+    }"
+    class="form-control"
+    id="{{ id }}"
+    placeholder="{{ label }}"
+  ></textarea>
+
   <div *ngIf="control.invalid && (control.dirty || control.touched)">
     <span *ngIf="control?.errors?.['required']" class="text-danger"
-      >{{ label }} é obrigatório</span
+      >{{ label }} is required</span
     >
 
     <span *ngIf="control?.errors?.['minlength']">
-      {{ label }} deve ter no mínimo
-      {{control.errors?.['minlength'].requiredLength}} caracteres
+      {{ label }} min length is
+      {{control.errors?.['minlength'].requiredLength}}
     </span>
     <span *ngIf="control?.errors?.['maxlength']">
-      {{ label }} deve ter no máximo
+      {{ label }} max length is
       {{control.errors?.['maxlength'].requiredLength}} caracteres
     </span>
-    
+
     <span *ngIf="control?.errors?.['email']">
-      O texto informado precisa ser um e-mail.
+      You must inform an e-mail.
     </span>
 
     <span *ngIf="control?.errors?.['min']">
-      {{ label }} deve ser no mínimo
+      {{ label }} must be at least
       {{control.errors?.['min'].min}}
     </span>
     <span *ngIf="control?.errors?.['max']">
-      {{ label }} deve ser no máximo
-      {{control.errors?.['max'].max}} 
+      {{ label }} must be at most
+      {{control.errors?.['max'].max}}
     </span>
   </div>
 </div>
