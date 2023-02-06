@@ -8,16 +8,31 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## About
 
-Form Input with label, validator and mask using Bootstrap Css
+Form Input with label, validator and mask using Bootstrap Css and NGX Mask
 
 ## Getting started
 
-Install de Ngx Input Text using NPM
+Import Bootstrap CDN
+```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 ```
-npm install ngx-input-text
+
+Install de Ngx Input Text using NPM
 
 ```
+npm install ngx-input-text
+```
+
+Install dependency
+
+```
+npm install ngx-mask
+
+```
+
 Import in your NgModel
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { NgxInputTextModule } from 'ngx-input-text';
@@ -95,6 +110,7 @@ ngOnInit(): void {
 }
 
 ```
+
 Then, in your Component HTML file put this:
 
 ```html
