@@ -31,7 +31,7 @@ export class MyModule {}
 
 ```
 
-In your component, import FormGroup, FormBuilder and Validators, create a form and implement os NgOnInit your form:
+In your component ts, import FormGroup, FormBuilder and Validators, create a form and implement os NgOnInit your form:
 
 ```typescript
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit{
 
 ngOnInit(): void {
     this.form = this.formBuilder.group({     
-     name: [
+     text: [
         '',
         Validators.compose([
           Validators.required,
@@ -48,7 +48,7 @@ ngOnInit(): void {
           Validators.maxLength(150),
         ]),
       ],
-      email: [
+      mask: [
         '',
         Validators.compose([
           Validators.required,
@@ -95,13 +95,13 @@ ngOnInit(): void {
 }
 
 ```
-Then, in your HTML file put this:
+Then, in your Component HTML file put this:
 
 ```html
 <form [formGroup]="form" >
           <div class="row">
-            <ngx-input-text class="col-sm-4" formControlName="name"  type="text" label="Name" id="name"  />
-            <ngx-input-text class="col-sm-4" mascara="(00) 0 0000-0000" formControlName="phone"  type="text" label="Phone with mask" id="phone"  />
+            <ngx-input-text class="col-sm-4" formControlName="text"  type="text" label="Text" id="text"  />
+            <ngx-input-text class="col-sm-4" mask="(00) 0 0000-0000" formControlName="mask"  type="text" label="Text with mask" id="mask"  />
             <ngx-input-text class="col-sm-4" formControlName="email"  type="email" label="Email" id="email"  />
           </div>
           <div class="row">
